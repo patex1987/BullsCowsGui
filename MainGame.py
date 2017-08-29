@@ -20,8 +20,19 @@ class GameState(object):
         self.round = 1
         self.possible_states = Enum('State', 'START INPROGRESS OVER')
         self.current_state = self.possible_states.START
-        self.secret_number = self._generate_secret_number()
+        self.secret_number = None
         self.computer_solution = None
+        self.new_round()
+
+    def new_round(self):
+        '''
+        Initializes a new round
+        '''
+        self.round = 1
+        self.current_state = self.possible_states.START
+        self.update_secret_number()
+        self.computer_solution = computer.ComputerGuessAlgorithm1(self.secret_number,
+                                                                  '0123')
 
     def _generate_secret_number(self):
         '''
@@ -34,22 +45,6 @@ class GameState(object):
         generates new secret number at the beginning of new round
         '''
         self.secret_number = self._generate_secret_number()
-
-
-def main_game():
-    '''
-    Handles the main loop of the game
-    '''
-    state = GameState()
-    GUI.submit_button.bind('<Button-1>',
-                           lambda event, game_state=state:
-                           submit_guess(event, state))
-    GUI.new_game_button.bind('<Button-1>',
-                             lambda event, game_state=state:
-                             start_new_game(event, state))
-    state.computer_solution = computer.ComputerGuessAlgorithm1(state.secret_number,
-                                                               '0123')
-    return
 
 
 def submit_guess(event, game_state):
@@ -87,6 +82,8 @@ def check_for_over(player_stat, computer_stat):
     '''
     Checks if the game has ended
     '''
+    if player_stat == computer_stat == (4, 0):
+        return 'It is a draw'
     if player_stat == (4, 0):
         return 'You have won!'
     if computer_stat == (4,0):
@@ -100,22 +97,28 @@ def start_new_game(event, game_state):
     '''
     if game_state.current_state == game_state.possible_states.START:
         GUI.reset_gui()
-        main_game()
+        STATE.new_round()
     elif game_state.current_state == game_state.possible_states.INPROGRESS:
         finish_game = messagebox.askquestion('Give up',
                                              'Do you want to give up?')
         if finish_game:
             GUI.reset_gui()
-            main_game()
+            STATE.new_round()
         return
     elif game_state.current_state == game_state.possible_states.OVER:
         GUI.reset_gui()
-        main_game()
+        STATE.new_round()
 
 
 if __name__ == '__main__':
     ROOT = tk.Tk()
     GUI = GuiBuilder.BullsGui(ROOT)
     ROOT.resizable(width=False, height=False)
-    main_game()
+    STATE = GameState()
+    GUI.submit_button.bind('<Button-1>',
+                           lambda event, game_state=STATE:
+                           submit_guess(event, STATE))
+    GUI.new_game_button.bind('<Button-1>',
+                             lambda event, game_state=STATE:
+                             start_new_game(event, STATE))
     ROOT.mainloop()
