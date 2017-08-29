@@ -966,7 +966,7 @@ def UserGuess(strUserNum):
     intCorrectGuessCounter  = 0
     #print "If You want to exit, type exit instead of a guess"
     while True:
-        strUserNum = raw_input("Enter your guess and press enter: ")
+        strUserNum = input("Enter your guess and press enter: ")
         intGuessCounter += 1
         if strUserNum.lower() == "exit":
             return -1,-1
@@ -994,14 +994,15 @@ def UserGuess(strUserNum):
 # The Main loop generates a random number, then the two algorithms finds that number and at the end the user should guess the number
 # After finding the number, The program ranks the user and the computer algorithms based on the number of guesses needed to find the right solution
 
-RoundNr = 1
-StrHorizontal = "#==============================================================================="
-
-dctResults = dict()
-strNumToGuess =  "".join([str(x) for x in random.sample(range(10), 4)])
-lstComputerSolution = [ComputerGuessAlgorithm1(strNumToGuess, "0123"),ComputerGuessAlgorithm2(strNumToGuess)]
-dctResults["Player1"] = len(lstComputerSolution[0])
-dctResults["Player2"] = len(lstComputerSolution[1])
-
-print ("{0}\nI've generated a random 4-digit number.\nPlayer {1} (Computer) has found it in {2} steps.\nPlayer {3} (Computer) has found it in {4} steps.\nCan You find it in less guesses?\n{5}\n".format(
-    StrHorizontal,1,len(lstComputerSolution[0]),2,len(lstComputerSolution[1]),StrHorizontal))
+if __name__ == '__main__':
+    RoundNr = 1
+    StrHorizontal = "#==============================================================================="
+    
+    dctResults = dict()
+    strNumToGuess =  "".join([str(x) for x in random.sample(range(10), 4)])
+    lstComputerSolution = [ComputerGuessAlgorithm1(strNumToGuess, "0123"),ComputerGuessAlgorithm2(strNumToGuess)]
+    dctResults["Player1"] = len(lstComputerSolution[0])
+    dctResults["Player2"] = len(lstComputerSolution[1])
+    
+    print ("{0}\nI've generated a random 4-digit number.\nPlayer {1} (Computer) has found it in {2} steps.\nPlayer {3} (Computer) has found it in {4} steps.\nCan You find it in less guesses?\n{5}\n".format(
+        StrHorizontal,1,len(lstComputerSolution[0]),2,len(lstComputerSolution[1]),StrHorizontal))
