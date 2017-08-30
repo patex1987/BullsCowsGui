@@ -72,13 +72,15 @@ def submit_guess(event, game_state):
     game_state.current_state = game_state.possible_states.INPROGRESS
     game_state.round += 1
     GUI.update_round(game_state.round)
-    round_result = check_for_over(player_cur_result, computer_cur_result)
+    round_result = check_for_over(player_cur_result,
+                                  computer_cur_result,
+                                  game_state.secret_number)
     if round_result is not None:
         GUI.game_result.config(text=round_result)
         game_state.current_state = game_state.possible_states.OVER
 
 
-def check_for_over(player_stat, computer_stat):
+def check_for_over(player_stat, computer_stat, secret_number):
     '''
     Checks if the game has ended
     '''
@@ -87,7 +89,7 @@ def check_for_over(player_stat, computer_stat):
     if player_stat == (4, 0):
         return 'You have won!'
     if computer_stat == (4, 0):
-        return 'You have lost!'
+        return 'You have lost! The secret number was: {0}'.format(secret_number)
     return None
 
 
