@@ -51,10 +51,10 @@ def submit_guess(event, game_state):
     '''
     Checks the correctness of the user guess
     '''
+    print(game_state.current_state)
     if game_state.current_state == game_state.possible_states.OVER:
         ROOT.bell()
         return
-    print(game_state.current_state)
     guess = GUI.player_tip.get()
     if len(guess) != 4:
         ROOT.bell()
@@ -121,4 +121,7 @@ if __name__ == '__main__':
     GUI.new_game_button.bind('<Button-1>',
                              lambda event, game_state=STATE:
                              start_new_game(event, STATE))
+    GUI.player_tip.bind('<Return>',
+                        lambda event, game_state=STATE:
+                        submit_guess(event, STATE))
     ROOT.mainloop()
