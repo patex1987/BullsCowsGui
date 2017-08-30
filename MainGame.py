@@ -86,7 +86,7 @@ def check_for_over(player_stat, computer_stat):
         return 'It is a draw'
     if player_stat == (4, 0):
         return 'You have won!'
-    if computer_stat == (4,0):
+    if computer_stat == (4, 0):
         return 'You have lost!'
     return None
 
