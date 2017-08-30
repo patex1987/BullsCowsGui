@@ -101,8 +101,8 @@ class BullsGui(object):
         '''
         loads resources (e.g. icons)
         '''
-        self.bull_icon = tk.PhotoImage(file=r'.\img\Cultures-Bull-icon.png')
-        self.cow_icon = tk.PhotoImage(file=r'.\img\Cow-icon.png')
+        self.bull_icon = tk.PhotoImage(file=r'img/Cultures-Bull-icon.png')
+        self.cow_icon = tk.PhotoImage(file=r'img/Cow-icon.png')
 
     def onValidate(self, P, S):
         '''
