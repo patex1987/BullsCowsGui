@@ -12,6 +12,7 @@
 * works under python 3
 * tkinter has to be installed
 * More information needs to be added later
+* To run the game, run MainGame.py
 
 ## Development setup
 
