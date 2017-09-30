@@ -6,6 +6,7 @@
 * The code has been tested on windows and raspbian os
 * The original console version was written at the beginning of 2017 (when my knowledge of Python was much worse :)).
 * The original code can be found here: https://github.com/patex1987/BullsAndCowsGame
+![](img/gui_screenshot.PNG)
 
 ## Installation
 
