@@ -1,8 +1,6 @@
 import random
 import itertools
-#from __builtin__ import str
 from operator import pos
-from audioop import reverse
 import operator
 
 #===============================================================================
