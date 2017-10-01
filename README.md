@@ -22,6 +22,7 @@ To be added later
 ## Todo
 
 * I just simply reused some of the code from my previous Bulls and Cows project. BullsCowsComputerLogic.py - contains these codes. This has to be rewritten, as it is really non-pythonic (was one my first Python projects). What I mean by non-pythonic - naming conventions, coding style, algorithms, etc. Very poor quality, but it works
+* Unit tests have to be added
 
 ## Release History
 
