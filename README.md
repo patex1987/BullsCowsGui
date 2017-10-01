@@ -6,7 +6,10 @@
 * The code has been tested on windows and raspbian os
 * The original console version was written at the beginning of 2017 (when my knowledge of Python was much worse :)).
 * The original code can be found here: https://github.com/patex1987/BullsAndCowsGame
+* Example screenshot:
 ![](img/gui_screenshot.PNG)
+* The following picture shows the game running on a home-made raspberry pi zero computer (Developed / created by the one and only Jaromir Sukuba, check out: https://github.com/jaromir-sukuba/pi_zero_computer)
+![](img/game_on_pi_zero.jpg)
 
 ## Installation
 
