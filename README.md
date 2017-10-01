@@ -9,6 +9,7 @@
 * Example screenshot:
 ![](img/gui_screenshot.PNG)
 * The following picture shows the game running on a home-made raspberry pi zero computer (Developed / created by the one and only Jaromir Sukuba, check out: https://github.com/jaromir-sukuba/pi_zero_computer)
+
 ![](img/game_on_pi_zero.jpg)
 
 ## Installation
